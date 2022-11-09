@@ -1,0 +1,5 @@
+INSERT INTO personnel (id, phone, email, age, reg_date, name)
+SELECT ROWNUM, '+380'||ROWNUM, 'email' ||ROWNUM, ROWNUM, TIMESTAMP'2020-05-01 12:00:00'
+     + (ROWNUM-1)*(INTERVAL '15' MINUTE), 'Name '|| ROWNUM
+FROM dual
+CONNECT BY LEVEL <= 1000000;
