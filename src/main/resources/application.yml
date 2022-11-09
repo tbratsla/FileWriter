@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: "YANTAR"
+    password: "demo"
+    url: "jdbc:oracle:thin:@my.domain.com:1521:OraDoc"
+    driverClassName: oracle.jdbc.OracleDriver
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: false
+    locations: filesystem:src/main/resources/db/migration
+    placeholders:
+      DATABASE.NAME: YANTAR_SCHEMA
+    baseline-on-migrate: true
+    jpa:
+      database: sql_server
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.SQLServer2012Dialect
+      show-sql: true
+      hibernate:
+        ddl-auto: none
+      generate-ddl: false
